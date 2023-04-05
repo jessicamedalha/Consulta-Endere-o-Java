@@ -1,6 +1,9 @@
-Feature: Realizar requisicao POST
-  Scenario: CPF valido
-    Given acesso a conexao via cep
-    And procura frete
-    When informo Cep
-    Then retorna endereco e frete
+Feature: Rest API Functionality Scenarios
+
+  Scenarios:  Rest Api POST CEP
+    Given Get Call to "<url>"
+    Then Response Code "<responseMessage>" is validated
+
+    Examples:
+      | url      | responseMessage |
+      | /consulta-endereco | 200   |
