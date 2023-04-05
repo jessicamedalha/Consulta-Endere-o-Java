@@ -3,6 +3,9 @@ import br.com.projeto.consultaendereco.dto.EnderecoDTO;
 import br.com.projeto.consultaendereco.dto.EnderecoViaCepDTO;
 import br.com.projeto.consultaendereco.dto.RequestCpfDTO;
 import br.com.projeto.consultaendereco.utils.ConstsEndereco;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -10,6 +13,10 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping(value = "/consulta-endereco")
 public class ConsultaCepController {
+
+    @Autowired
+    RestTemplate restTemplate;
+
 
     @PostMapping((""))
     public ResponseEntity<?> consultaViaCep (@RequestBody RequestCpfDTO cpfDTO){
@@ -24,7 +31,7 @@ public class ConsultaCepController {
             return ResponseEntity.badRequest().body("CEP invalido");
         }
 
-        RestTemplate restTemplate = new RestTemplate();
+
         ResponseEntity<EnderecoViaCepDTO> responseViaCep =
                 restTemplate.getForEntity(
                         String.format("https://viacep.com.br/ws/%s/json", cpfDTO.getCpf()),
