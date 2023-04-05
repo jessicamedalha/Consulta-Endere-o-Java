@@ -30,7 +30,6 @@ public class ConstsEndereco {
     public double NORTE = 20.83;
 
     public double findCustFrete(String uf){
-        ConstsEndereco regiao = new ConstsEndereco();
         double valueFrete =0.0;
 
         if(Arrays.asList(REGIAO_NORDESTE).contains(uf)){
