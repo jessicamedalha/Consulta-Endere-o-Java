@@ -9,3 +9,7 @@ Projeto API utilizando Java.
 - Documentação Swagger
 - Testes unitários JUnit5
 - Testes automatizados utilizando cucumber
+
+
+## Acesso API:
+- http://localhost:8080/swagger-ui/index.html
